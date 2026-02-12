@@ -6,7 +6,7 @@ from tkinter import filedialog, messagebox
 
 DB_PATH = "expense.db"
 
-# -------- EXPORT TO CSV --------
+
 def export_to_csv():
     file_path = filedialog.asksaveasfilename(
         defaultextension=".csv",
@@ -31,7 +31,7 @@ def export_to_csv():
     messagebox.showinfo("Success", "Transactions exported successfully!")
 
 
-# -------- IMPORT FROM CSV --------
+
 def import_from_csv():
     file_path = filedialog.askopenfilename(
         filetypes=[("CSV files", "*.csv")]
@@ -59,7 +59,7 @@ def import_from_csv():
     messagebox.showinfo("Success", "Transactions imported successfully!")
 
 
-# -------- BACKUP DATABASE --------
+
 def backup_database():
     file_path = filedialog.asksaveasfilename(
         defaultextension=".db",
@@ -73,7 +73,7 @@ def backup_database():
     messagebox.showinfo("Backup", "Database backup completed!")
 
 
-# -------- RESTORE DATABASE --------
+
 def restore_database():
     file_path = filedialog.askopenfilename(
         filetypes=[("Database files", "*.db")]
@@ -83,4 +83,5 @@ def restore_database():
         return
 
     shutil.copy(file_path, DB_PATH)
+
     messagebox.showinfo("Restore", "Database restored! Restart the app.")
