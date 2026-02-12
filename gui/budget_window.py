@@ -13,7 +13,7 @@ class BudgetWindow(tk.Toplevel):
         self.title("Manage Budgets")
         self.geometry("450x400")
 
-        # Category dropdown
+        
         ttk.Label(self, text="Category:").pack(anchor="w", padx=10, pady=5)
         categories = get_all_categories()
         self.category_var = tk.StringVar()
@@ -28,14 +28,14 @@ class BudgetWindow(tk.Toplevel):
         if categories:
             self.category_dropdown.current(0)
 
-        # Budget amount
+        
         ttk.Label(self, text="Monthly Budget Amount:").pack(anchor="w", padx=10, pady=5)
         self.amount_entry = tk.Entry(self)
         self.amount_entry.pack(fill="x", padx=10)
 
         ttk.Button(self, text="Save Budget", command=self.save_budget).pack(pady=10)
 
-        # Budget list
+        
         self.tree = ttk.Treeview(self, columns=("id", "category", "amount"), show="headings")
         self.tree.heading("id", text="ID")
         self.tree.heading("category", text="Category")
@@ -84,3 +84,4 @@ class BudgetWindow(tk.Toplevel):
 
         delete_budget(budget_id)
         self.load_budgets()
+
