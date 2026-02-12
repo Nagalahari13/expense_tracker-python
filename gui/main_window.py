@@ -33,7 +33,7 @@ class MainWindow:
         title.pack(pady=10)
 
 
-        # 🔹 Buttons frame
+        
         btn_frame = tk.Frame(self.root)
         btn_frame.pack(pady=20)
 
@@ -119,11 +119,11 @@ class MainWindow:
         self.tree.pack(fill="both", expand=True)
         self.tree.bind("<Double-1>",self.double_click_edit)
 
-        # ========== ROOT LAYOUT ==========
+        
         main_container = ttk.Frame(self.root)
         main_container.pack(fill="both", expand=True)
 
-        # ========== TOOLBAR ==========
+        
         toolbar = ttk.Frame(main_container)
         toolbar.pack(fill="x", padx=10, pady=5)
 
@@ -133,11 +133,11 @@ class MainWindow:
         ttk.Button(toolbar, text="🔍 Filter", command=self.open_filter_window).pack(side="left", padx=5)
         ttk.Button(toolbar, text="📊 Dashboard", command=self.open_dashboard).pack(side="left", padx=5)
 
-        # ========== CONTENT AREA ==========
+        
         content = ttk.Frame(main_container)
         content.pack(fill="both", expand=True)
 
-        # ========== SIDEBAR ==========
+        
         sidebar = ttk.Frame(content, width=200)
         sidebar.pack(side="left", fill="y", padx=10, pady=10)
 
@@ -147,7 +147,7 @@ class MainWindow:
         ttk.Button(sidebar, text="Manage Budgets", command=self.open_budget_window).pack(fill="x", pady=5)
         ttk.Button(sidebar, text="Reports", command=self.open_reports).pack(fill="x", pady=5)
 
-        # ========== MAIN TABLE ==========
+        
         table_frame = ttk.Frame(content)
         table_frame.pack(side="left", fill="both", expand=True, padx=10, pady=10)
         self.tree=ttk.Treeview(
@@ -165,7 +165,7 @@ class MainWindow:
 
         self.tree.bind("<Double-1>", self.double_click_edit)
 
-        # ========== STATUS BAR ==========
+        
         self.budget_label = tk.Label(
             self.root,
             text="",
@@ -308,3 +308,4 @@ class MainWindow:
         login_root = tk.Tk()
         LoginWindow(login_root, self.open_main_app)
         login_root.mainloop()
+
