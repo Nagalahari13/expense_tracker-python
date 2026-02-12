@@ -15,14 +15,14 @@ class ReportWindow:
         master.title("Reports & Summary")
         master.geometry("700x600")
 
-        # -------- TITLE --------
+        
         ttk.Label(
             master,
             text="Expense Summary Report",
             font=("Helvetica", 16, "bold")
         ).pack(pady=15)
 
-        # -------- FILTER --------
+        
         filter_frame = ttk.Frame(master)
         filter_frame.pack(pady=10)
 
@@ -40,7 +40,7 @@ class ReportWindow:
             command=self.load_report
         ).grid(row=0, column=4, padx=10)
 
-        # -------- SUMMARY --------
+        
         summary = ttk.LabelFrame(master, text="Monthly Summary")
         summary.pack(fill="x", padx=15, pady=10)
 
@@ -51,8 +51,8 @@ class ReportWindow:
         self.income_label.pack(anchor="w", pady=3)
         self.expense_label.pack(anchor="w", pady=3)
         self.balance_label.pack(anchor="w", pady=3)
-
-        # -------- CATEGORY TABLE --------
+        
+        
         table_frame = ttk.LabelFrame(master, text="Category-wise Summary")
         table_frame.pack(fill="both", expand=True, padx=15, pady=10)
 
@@ -71,7 +71,7 @@ class ReportWindow:
         # Load initial report
         self.load_report()
 
-    # ================= LOAD REPORT =================
+    
     def load_report(self):
         year = int(self.year_var.get())
         month = int(self.month_var.get())
@@ -79,7 +79,7 @@ class ReportWindow:
 
         #print("DEBUG REPORT:", user_id, year, month)
 
-        # ----- MONTHLY SUMMARY -----
+        
         income = 0
         expense = 0
 
@@ -95,11 +95,12 @@ class ReportWindow:
         self.expense_label.config(text=f"Total Expense: {expense}")
         self.balance_label.config(text=f"Balance: {balance}")
 
-        # ----- CATEGORY SUMMARY -----
+        
         rows = get_category_summary(self.user_id, year, month)
 
         for i in self.tree.get_children():
             self.tree.delete(i)
 
         for r in rows:
+
             self.tree.insert("", tk.END, values=r)
