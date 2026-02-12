@@ -1,4 +1,4 @@
-# db/repository.py
+
 import sqlite3
 import os
 
@@ -58,7 +58,7 @@ def delete_transaction(transaction_id):
     conn.commit()
     conn.close()
 
-# ----------------- Categories -----------------
+
 def insert_category(name):
     conn = get_connection()
     cur = conn.cursor()
@@ -261,4 +261,5 @@ def get_dashboard_data(self, user_id):
 
     data = cursor.fetchall()
     conn.close()
+
     return data
