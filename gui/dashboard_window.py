@@ -17,12 +17,12 @@ class DashboardWindow(tb.Frame):
         self.parent = parent
         self.user_id=user_id
 
-        # 🔹 CREATE REAL WINDOW
+
         self.win = tk.Toplevel(parent.root)
         self.win.title("Dashboard")
         self.win.geometry("900x600")
 
-        # 🔹 ATTACH FRAME TO WINDOW
+
         super().__init__(self.win)
         self.pack(fill="both", expand=True)
 
@@ -61,21 +61,18 @@ class DashboardWindow(tb.Frame):
         ttk.Button(filter_frame, text="Refresh Dashboard",
                    command=self.load_dashboard).grid(row=0, column=4, padx=10)
 
-        # -------------------- GRAPH FRAME --------------------
+        
         self.graph_frame = tk.Frame(self, bg="#11cf33")
         self.graph_frame.pack(fill="both", expand=True, pady=10)
 
         self.load_dashboard()
 
-    # ---------------------------------------------------------
-    #   LOAD GRAPHS
-    # ---------------------------------------------------------
     def load_dashboard(self):
         
         data=repr.get_dashboard_data(self.user_id)
         print("Dashboard data", data)
         try:
-        # Clear old graphs
+        
             for widget in self.graph_frame.winfo_children():
                 widget.destroy()
 
@@ -85,7 +82,7 @@ class DashboardWindow(tb.Frame):
             category_data = self.get_category_summary(year, month)
             month_data = self.get_monthly_summary(year)
 
-        # ---------------- LEFT GRAPH ----------------
+        
             left_frame = tk.Frame(self.graph_frame, bg="#f5f5f5")
             left_frame.pack(side="left", fill="both", expand=True)
 
@@ -111,7 +108,7 @@ class DashboardWindow(tb.Frame):
             print("category data", category_data)
             print("month data", month_data)
 
-        # ---------------- RIGHT GRAPH ----------------
+        
             right_frame = tk.Frame(self.graph_frame, bg="#f5f5f5")
             right_frame.pack(side="right", fill="both", expand=True)
 
@@ -134,7 +131,7 @@ class DashboardWindow(tb.Frame):
         except Exception as e:
             print("DASHBOARD ERROR:", e)
         
-    # ---------------------------------------------------------
+    
     def get_category_summary(self, year, month):
         conn = sqlite3.connect("expense_tracker.db")
         cur = conn.cursor()
@@ -179,3 +176,4 @@ class DashboardWindow(tb.Frame):
         conn.close()
         return data
     
+
