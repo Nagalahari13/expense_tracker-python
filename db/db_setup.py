@@ -1,4 +1,4 @@
-# db/db_setup.py
+
 import sqlite3
 import os
 
@@ -11,7 +11,7 @@ def setup_database():
     conn = get_conn()
     cur = conn.cursor()
 
-    # Create categories table
+    
     cur.execute("""
     CREATE TABLE IF NOT EXISTS categories (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -20,7 +20,7 @@ def setup_database():
     )
     """)
 
-    # Create transactions table
+    
     cur.execute("""
     CREATE TABLE IF NOT EXISTS transactions (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -36,7 +36,7 @@ def setup_database():
     )
     """)
 
-    # Create budgets table
+    
     cur.execute("""
     CREATE TABLE IF NOT EXISTS budgets (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -52,4 +52,5 @@ def setup_database():
     print("Database setup complete:", DB_PATH)
 
 if __name__ == "__main__":
+
     setup_database()
