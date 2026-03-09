@@ -1,3 +1,4 @@
+
 import tkinter as tk
 from tkinter import messagebox
 import sqlite3
@@ -119,3 +120,4 @@ class LoginWindow:
 
         from gui.register_window import RegisterWindow
         RegisterWindow(self.root)
+

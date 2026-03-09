@@ -1,3 +1,4 @@
+
 import tkinter as tk
 from gui.transaction_page import TransactionPage
 from gui.dashboard_page import DashboardPage
@@ -118,3 +119,4 @@ class MainWindow:
 
         for widget in self.content.winfo_children():
             widget.destroy()
+
